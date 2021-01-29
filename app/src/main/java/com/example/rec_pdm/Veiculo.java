@@ -1,6 +1,8 @@
 package com.example.rec_pdm;
 
-public class Veiculo {
+import android.os.Parcelable;
+
+public class Veiculo implements Comparable<Veiculo> {
     private int id;
     private String descricao;
     private String categoria;
@@ -63,4 +65,15 @@ public class Veiculo {
     public int hashCode(){
         return this.id;
     }
+
+    // -------------------------------- COMPARABLE IMPLEMENTATION
+
+    @Override
+    public int compareTo(Veiculo o) {
+        String c1  = this.getDescricao();
+        String c2= o.getDescricao();
+        return c1.compareToIgnoreCase(c2);
+    }
+
+
 }
